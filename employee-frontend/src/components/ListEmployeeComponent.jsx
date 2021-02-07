@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EmployeeService from "../services/EmployeeService";
 
 class ListEmployeeComponent extends Component {
   constructor(props) {
@@ -8,7 +9,13 @@ class ListEmployeeComponent extends Component {
       employees: [],
     };
   }
-
+  //라이프사이클 : 컴포넌트가 마운트 된 후 즉시 호출
+  componentDidMount() {
+    EmployeeService.getEmployees().then((res) => {
+      this.setState({ employees: res.data });
+      console.log(res.data)
+    })
+  }
   render() {
     return (
       <div>
@@ -25,13 +32,14 @@ class ListEmployeeComponent extends Component {
             </thead>
 
             <tbody>
-              {this.state.employees.map((employee) => {
-                <tr key={employee.id}>
-                  <td>{employee.firstName}</td>
-                  <td>{employee.lastName}</td>
-                  <td>{employee.emailId}</td>
-                </tr>;
-              })}
+              {this.state.employees.map(
+                employee =>
+                  <tr key={employee.id}>
+                    <td>{employee.firstName}</td>
+                    <td>{employee.lastName}</td>
+                    <td>{employee.emailId}</td>
+                  </tr>
+              )}
             </tbody>
           </table>
         </div>

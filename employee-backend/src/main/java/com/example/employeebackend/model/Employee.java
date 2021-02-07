@@ -50,11 +50,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
+    public String getEmailId() {
         return emailId;
     }
 
-    public void setEmail(String emailId) {
+    public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
 }

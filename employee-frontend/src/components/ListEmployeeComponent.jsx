@@ -13,8 +13,8 @@ class ListEmployeeComponent extends Component {
   componentDidMount() {
     EmployeeService.getEmployees().then((res) => {
       this.setState({ employees: res.data });
-      console.log(res.data)
-    })
+      console.log(res.data);
+    });
   }
   render() {
     return (
@@ -32,14 +32,13 @@ class ListEmployeeComponent extends Component {
             </thead>
 
             <tbody>
-              {this.state.employees.map(
-                employee =>
-                  <tr key={employee.id}>
-                    <td>{employee.firstName}</td>
-                    <td>{employee.lastName}</td>
-                    <td>{employee.emailId}</td>
-                  </tr>
-              )}
+              {this.state.employees.map((employee) => (
+                <tr key={employee.id}>
+                  <td>{employee.firstName}</td>
+                  <td>{employee.lastName}</td>
+                  <td>{employee.emailId}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

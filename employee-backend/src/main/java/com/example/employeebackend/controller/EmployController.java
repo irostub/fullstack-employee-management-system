@@ -1,8 +1,10 @@
 package com.example.employeebackend.controller;
 
+import com.example.employeebackend.exception.ResourceNotFoundException;
 import com.example.employeebackend.model.Employee;
 import com.example.employeebackend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,8 +26,19 @@ public class EmployController {
         return employeeRepository.findAll();
     }
 
-    @PutMapping("/employees")
+    @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeRepository.save(employee);
+    }
+
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetail){
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id = " + id));
+        employee.setFirstName(employeeDetail.getFirstName());
+        employee.setLastName(employeeDetail.getLastName());
+        employee.setEmailId(employeeDetail.getEmailId());
+
+        Employee updateEmployee = employeeRepository.save(employee);
+        return ResponseEntity.ok(updateEmployee);
     }
 }

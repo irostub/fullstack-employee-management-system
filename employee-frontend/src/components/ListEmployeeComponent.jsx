@@ -9,13 +9,16 @@ class ListEmployeeComponent extends Component {
       employees: [],
     };
 
-    this.addEmployee = this.addEmployee.bind(this)
+    this.addEmployee = this.addEmployee.bind(this);
   }
 
-  addEmployee(){
-    this.props.history.push("/create-employee")
-  }
+  addEmployee = () => {
+    this.props.history.push("/create-employee");
+  };
 
+  editEmployee = (id) => {
+    this.props.history.push(`/update-employee/${id}`);
+  };
   //라이프사이클 : 컴포넌트가 마운트 된 후 즉시 호출
   componentDidMount() {
     EmployeeService.getEmployees().then((res) => {
@@ -28,7 +31,9 @@ class ListEmployeeComponent extends Component {
       <div>
         <h2 className="text-center">Employee List</h2>
         <div className="row">
-          <button className="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>
+          <button className="btn btn-primary" onClick={this.addEmployee}>
+            Add Employee
+          </button>
         </div>
         <div className="row">
           <table className="table table-striped table-bordered">
@@ -47,6 +52,11 @@ class ListEmployeeComponent extends Component {
                   <td>{employee.firstName}</td>
                   <td>{employee.lastName}</td>
                   <td>{employee.emailId}</td>
+                  <td>
+                    <button onClick={() => this.editEmployee(employee.id)} className="btn btn-info">
+                      Update
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

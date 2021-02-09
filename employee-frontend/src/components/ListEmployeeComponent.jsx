@@ -8,8 +8,6 @@ class ListEmployeeComponent extends Component {
     this.state = {
       employees: [],
     };
-
-    this.addEmployee = this.addEmployee.bind(this);
   }
 
   addEmployee = () => {
@@ -19,6 +17,15 @@ class ListEmployeeComponent extends Component {
   editEmployee = (id) => {
     this.props.history.push(`/create-employee/${id}`);
   };
+
+  deleteEmployee = (id) => {
+    EmployeeService.deleteEmployee(id).then((res) => {
+      this.setState({
+        employees: this.state.employees.filter((employee) => employee.id != id),
+      });
+    });
+  };
+
   //라이프사이클 : 컴포넌트가 마운트 된 후 즉시 호출
   componentDidMount() {
     EmployeeService.getEmployees().then((res) => {
@@ -29,9 +36,9 @@ class ListEmployeeComponent extends Component {
   render() {
     return (
       <div>
-        <h2 className="text-center">Employee List</h2>
+        <h2 className="text-center mt-5">Employee List</h2>
         <div className="row">
-          <button className="btn btn-primary" onClick={this.addEmployee}>
+          <button className="btn btn-primary mb-3" onClick={this.addEmployee}>
             Add Employee
           </button>
         </div>
@@ -55,6 +62,12 @@ class ListEmployeeComponent extends Component {
                   <td>
                     <button onClick={() => this.editEmployee(employee.id)} className="btn btn-info">
                       Update
+                    </button>
+                    <button
+                      onClick={() => this.deleteEmployee(employee.id)}
+                      className="ml-3 btn btn-danger"
+                    >
+                      Delete
                     </button>
                   </td>
                 </tr>

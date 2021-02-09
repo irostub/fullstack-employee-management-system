@@ -13,11 +13,11 @@ class ListEmployeeComponent extends Component {
   }
 
   addEmployee = () => {
-    this.props.history.push("/create-employee");
+    this.props.history.push("/create-employee/-1");
   };
 
   editEmployee = (id) => {
-    this.props.history.push(`/update-employee/${id}`);
+    this.props.history.push(`/create-employee/${id}`);
   };
   //라이프사이클 : 컴포넌트가 마운트 된 후 즉시 호출
   componentDidMount() {

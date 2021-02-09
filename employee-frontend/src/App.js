@@ -4,6 +4,7 @@ import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
+import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
@@ -15,7 +16,10 @@ function App() {
           <Switch>
             <Route path="/" exact component={ListEmployeeComponent}></Route>
             <Route path="/employees" component={ListEmployeeComponent}></Route>
-            <Route path="/create-employee" component={CreateEmployeeComponent}></Route>
+            <Route path="/create-employee/:id" component={CreateEmployeeComponent}></Route>
+
+            {/* Do not use UpdateEmployeeComponent, too many overlap with CreateEmployeeComponet */}
+            {/* <Route path="/update-employee/:id" component={UpdateEmployeeComponent}></Route> */}
           </Switch>
         </div>
         <FooterComponent />

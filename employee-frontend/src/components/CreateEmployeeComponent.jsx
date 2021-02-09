@@ -68,7 +68,7 @@ class CreateEmployeeComponent extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Email</label>
+                  <label>Email Id</label>
                   <input
                     name="email"
                     className="form-control"

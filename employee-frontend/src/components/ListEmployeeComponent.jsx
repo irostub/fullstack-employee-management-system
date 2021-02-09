@@ -25,6 +25,9 @@ class ListEmployeeComponent extends Component {
       });
     });
   };
+  viewEmployee = (id) => {
+    this.props.history.push(`view-employee/${id}`);
+  };
 
   //라이프사이클 : 컴포넌트가 마운트 된 후 즉시 호출
   componentDidMount() {
@@ -65,9 +68,15 @@ class ListEmployeeComponent extends Component {
                     </button>
                     <button
                       onClick={() => this.deleteEmployee(employee.id)}
-                      className="ml-3 btn btn-danger"
+                      className="ml-2 btn btn-danger"
                     >
                       Delete
+                    </button>
+                    <button
+                      onClick={() => this.viewEmployee(employee.id)}
+                      className="ml-2 btn btn-info"
+                    >
+                      View
                     </button>
                   </td>
                 </tr>

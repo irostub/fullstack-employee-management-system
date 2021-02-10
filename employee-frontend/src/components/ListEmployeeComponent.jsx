@@ -39,7 +39,7 @@ class ListEmployeeComponent extends Component {
   render() {
     return (
       <div>
-        <h2 className="text-center mt-5">Employee List</h2>
+        <h2 className="text-center">Employee List</h2>
         <div className="row">
           <button className="btn btn-primary mb-3" onClick={this.addEmployee}>
             Add Employee

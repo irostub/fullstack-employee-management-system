@@ -9,7 +9,7 @@ class HeaderComponent extends Component {
   render() {
     return (
       <header>
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-5">
           <div>
             <a href="#" className="navbar-brand">
               LOGO

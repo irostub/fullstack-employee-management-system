@@ -5,7 +5,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
 import ViewEmployeeComponent from "./components/ViewEmployeeComponent";
-import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
+//import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {

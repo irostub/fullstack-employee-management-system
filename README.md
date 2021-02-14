@@ -1,5 +1,5 @@
 
-# Employee Management System [![Heroku App Status](http://heroku-shields.herokuapp.com/ems-side-client)](https://ems-side-client.herokuapp.com)
+# Employee Management System [![Heroku App Status](https://img.shields.io/badge/heroku-up-brightgreen?style=flat&logo=heroku)](https://ems-side-client.herokuapp.com)
 
 
 EMS(Employee Management System)프로젝트는 기본적인 CRUD 를 지원하는 직원 관리 웹입니다. 풀스택 웹 개발의 전반적인 부분을 다뤄보기 위해서 만들었습니다. 프로젝트는 heroku를 통해 배포합니다.   

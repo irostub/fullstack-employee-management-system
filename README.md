@@ -3,7 +3,6 @@
 
 
 EMS(Employee Management System)프로젝트는 기본적인 CRUD 를 지원하는 직원 관리 웹입니다. 풀스택 웹 개발의 전반적인 부분을 다뤄보기 위해서 만들었습니다. 프로젝트는 heroku를 통해 배포합니다.   
-##### heroku를 통해 배포하므로 앱이 슬립모드에서 깨어나기까지 **5~20초 소요**될 수 있습니다.
 #### Site Link: **https://ems-side-client.herokuapp.com**
 
 ## Use
